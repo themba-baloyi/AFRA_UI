@@ -1,0 +1,105 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Resources</h4>
+                        <p class="category">Number of Resources: 120</p>
+                    </div>
+                    <div class="card-content table-responsive" >
+                        <mat-card>
+                            <mat-card-content>
+                                <mat-card-content>
+                                    <input type="text" placeholder="Multi-Search" id="tableInput" (keyup)="applyFilter($event.target.value)" >
+                                    <button type="submit" class="btn btn-danger" id="btnNew" data-target="#exampleModalCenter" data-toggle="modal">New Resource</button>
+                                </mat-card-content>
+                            </mat-card-content>
+                        </mat-card>
+
+                        <div class="example-container mat-elevation-z8">
+                        <table class="table ">
+                            <thead>
+                                <tr>
+                                    <th class="text-danger">AB Number</th>
+                                    <th class="text-danger">Name</th>
+                                    <th class="text-danger">Surname</th>
+                                    <th class="text-danger">Email</th>
+                                    <th class="text-danger">Resource Type</th>
+                                    <th class="text-danger">Supplier</th>
+                                    <th class="text-danger">Role</th>
+                                    <th class="text-danger"></th>
+                                </tr>
+                            </thead>
+                            <tbody *ngFor="let data of resources">
+                                <tr>
+                                    <td><input id="tableInput" value={{data.id}} #txtId></td>
+                                    <td><input id="tableInput" value={{data.fname}} #txtFName></td>
+                                    <td><input id="tableInput" value={{data.lname}} #txtLName></td>
+                                    <td><input id="tableInput" value={{data.email}} #txtEmail></td>
+                                    <td><input id="tableInput" value={{data.type}} #txtType></td>
+                                    <td><input id="tableInput" value='' #txtSupplier></td>
+                                    <td><input id="tableInput" value='{{data.role}}' #txtRole></td>
+                                    <td>
+                                        <button id='btn' (click)="updateResource(txtId.value, txtFName.value, txtLName.value, txtEmail.value, txtType.value, txtRole.value, txtSupplier.value)" >Save</button>
+                                        <button id='btn' (click)="deleteResource(txtId.value)" >Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        </div>
+
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle"  data-target="#exampleModalCenter" data-toggle="modal">New Resource</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body" >
+                                        <form data-toggle="validator">
+                                            <div class="col">
+                                                <select id="tableSelect" #type title="Select resource type...">
+                                                    <option value="Profees">Profees</option>
+                                                    <option value="ManPower">ManPower</option>
+                                                </select>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control"  #abNum placeholder="AB Number" required>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" #fname placeholder="First Name" minlength="5" maxlength="6" required>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" #lname placeholder="Surname" required>
+                                            </div>
+                                            <div class="col">
+                                                <input type="email" class="form-control" #email placeholder="Email" required>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" #supplier placeholder="Supplier" required>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" #role placeholder="Role" required>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger"  (click)="createResource(abNum.value, fname.value, lname.value, email.value, type.value, role.value)">Create Project</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

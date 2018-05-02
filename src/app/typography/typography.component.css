@@ -1,0 +1,43 @@
+.CardHeader{
+    background-color: rgba(255, 0, 0, 0.45);
+    color: white;
+}
+
+#tableInput{
+    border-bottom: #f1f1f1 1px solid;
+    border-right: none;
+    border-left:none;
+    border-top: none;
+    transition: border-bottom 2s;
+}
+
+#tableInput:focus{
+    border-bottom:1px red solid;
+    transition: border-bottom 2s;
+}
+
+#tableSelect{
+    background: #fff;
+    border:none;
+}
+
+#tableSelect:focus{
+    border-bottom: red 1px solid;
+}
+
+#tables{
+    overflow: auto;
+    display: block;
+}
+
+mat-header-cell{
+}
+
+mat-cell{
+    padding:5px;
+    width: auto;
+}
+
+#btnNew{
+    float: right;
+}

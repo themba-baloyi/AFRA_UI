@@ -1,0 +1,114 @@
+<div class="main-content">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header" data-background-color="red">
+                    <h4 class="title">Recovery</h4>
+                    <p class="category">Last updated: 2017</p>
+                </div>
+                <div class="card-content">
+                    <mat-card>
+                        <mat-card-content>
+                            <input type="text" placeholder="Multi-Search" id="tableInput" (keyup)="applyFilter($event.target.value)" >
+                            <button type="submit" class="btn btn-danger" id="btnNew">New Entry</button>
+                        </mat-card-content>
+                    </mat-card>
+                    <br>
+                    <mat-table #table [dataSource]="dataSource" id="tables">
+
+                        <!-- Position Column -->
+                        <ng-container matColumnDef="abNumber">
+                            <mat-header-cell *matHeaderCellDef class="text-danger">AB Number </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{element.abNumber}} </mat-cell>
+                        </ng-container>
+
+                        <!-- Name Column -->
+                        <ng-container matColumnDef="name">
+                            <mat-header-cell *matHeaderCellDef class="text-danger"> Name Surname </mat-header-cell>
+                            <mat-cell *matCellDef="let element">  {{element.name}}</mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="role">
+                            <mat-header-cell *matHeaderCellDef class="text-danger"> Role </mat-header-cell>
+                            <mat-cell *matCellDef="let element">  <input id="tableInput"  matInput value="{{element.role}}"> </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="project">
+                            <mat-header-cell *matHeaderCellDef class="text-danger"> Project:<br><select id="tableSelect">
+                                <option>COB</option>
+                                <option>Home Loans</option>
+                                <option>Power Curve</option>
+                                <option>Test</option>
+                            </select> </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> <input id="tableInput"  matInput value="{{element.actCost}}"> </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="year">
+                            <mat-header-cell *matHeaderCellDef class="text-danger"> Year:<br><select id="tableSelect">
+                                <option>2020</option>
+                                <option>2019</option>
+                                <option>2018</option>
+                                <option selected>2017</option>
+                                <option>2016</option>
+                            </select> </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> <input id="tableInput"  matInput value="{{element.actCost}}"> </mat-cell>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="month">
+                            <mat-header-cell *matHeaderCellDef class="text-danger"> Month:<br> <select id="tableSelect">
+                                <option>January</option>
+                                <option>February</option>
+                                <option>March</option>
+                                <option>April</option>
+                                <option>May</option>
+                                <option>June</option>
+                                <option>July</option>
+                                <option>August</option>
+                                <option>September</option>
+                                <option>October</option>
+                                <option>November</option>
+                                <option>December</option>
+                            </select>  </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> <input id="tableInput"  matInput value="{{element.actCost}}"> </mat-cell>
+                        </ng-container>
+
+
+                        <ng-container matColumnDef="resourceType">
+                            <mat-header-cell *matHeaderCellDef  class="text-danger"> Resource Type </mat-header-cell>
+                            <mat-cell *matCellDef="let element">  Profees </mat-cell>
+                        </ng-container>
+
+                        <!-- Weight Column -->
+                        <ng-container matColumnDef="estCost">
+                            <mat-header-cell *matHeaderCellDef class="text-danger"> Estimated Cost </mat-header-cell>
+                            <mat-cell *matCellDef="let element "> <input id="tableInput" type="number" matInput value="{{element.estCost}}"> </mat-cell>
+                        </ng-container>
+
+                        <!-- Symbol Column -->
+                        <ng-container matColumnDef="actCost">
+                            <mat-header-cell *matHeaderCellDef class="text-danger"> Actual Cost </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> <input id="tableInput"  matInput value="{{element.actCost}}"> </mat-cell>
+                        </ng-container>
+
+                        <ng-container matColumnDef="action">
+                            <mat-header-cell *matHeaderCellDef class="text-danger"> Action </mat-header-cell>
+                            <mat-cell *matCellDef="let element">
+                                <select id="tableInput">
+                                    <option  selected disabled>Select an action</option>
+                                    <option><button mat-raised-button>Save</button></option>
+                                    <option><button mat-raised-button>Delete</button></option>
+                                </select>
+                            </mat-cell>
+                        </ng-container>
+
+                        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                    </mat-table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
