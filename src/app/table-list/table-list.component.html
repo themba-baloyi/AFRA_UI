@@ -1,0 +1,219 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class=" col-md-12">
+            <div class="card card-nav-tabs" >
+                <div class="card-header" data-background-color="red">
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                <li class="active">
+                                    <a href="#profile" data-toggle="tab">
+                                        <i class="material-icons">bug_report</i>
+                                        Suppliers Finance
+                                        <div class="ripple-container"></div></a>
+                                </li>
+                                <li class="">
+                                    <a href="#messages" data-toggle="tab">
+                                        <i class="material-icons">code</i>
+                                        Project Finance
+                                        <div class="ripple-container"></div></a>
+                                </li>
+                                <li class="">
+                                    <a href="#settings" data-toggle="tab">
+                                        <i class="material-icons">cloud</i>
+                                        Resource Finance
+                                        <div class="ripple-container"></div></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-content">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="profile">
+                            <div class="card">
+                                <div class="card-header" data-background-color="red">
+                                    <h4 class="title">CTO Suppliers</h4>
+                                    <p>Total: R183,000.00</p>
+                                </div>
+                                <div class="card-content table-responsive">
+                                    <table class="table">
+                                        <thead class="text-danger">
+                                        <tr>
+                                            <th>Supplier Name</th>
+                                            <th>Estimated Cost</th>
+                                            <th>Actual Cost</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Lean Systems</td>
+                                            <td>R78,000.00</td>
+                                            <td>R78,000.00</td>
+                                            <td><button mat-raised-button color="warn">Save</button><button mat-raised-button color="warn">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cap</td>
+                                            <td>R106,000.00</td>
+                                            <td>R106,000.00</td>
+                                            <td><button mat-raised-button color="warn">Save</button><button mat-raised-button color="warn">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dearx</td>
+                                            <td>R300,000.00</td>
+                                            <td>R106,000.00</td>
+                                            <td><button mat-raised-button color="warn">Save</button><button mat-raised-button color="warn">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Labs</td>
+                                            <td>R50, 000.00</td>
+                                            <td>R106,000.00</td>
+                                            <td><button mat-raised-button color="warn">Save</button><button mat-raised-button color="warn">Delete</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <button mat-raised-button>New Supplier Cost</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="messages">
+                            <div class="card">
+                                <div class="card-header" data-background-color="red">
+                                    <h4 class="title">CTO Projects</h4>
+                                    <p>Total: R183,000.00</p>
+                                </div>
+                                <div class="card-content table-responsive">
+                                    <table class="table">
+                                        <thead class="text-danger">
+                                        <tr>
+                                            <th>Project Name</th>
+                                            <th>Estimated Cost</th>
+                                            <th>Actual Cost</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>MOB</td>
+                                            <td>R748,000.00</td>
+                                            <td>R178,000.00</td>
+                                            <td><button mat-raised-button color="warn">Save</button><button mat-raised-button color="warn">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>Power Curve</td>
+                                            <td>R106,000.00</td>
+                                            <td>R106,000.00</td>
+                                            <td><button mat-raised-button color="warn">Save</button><button mat-raised-button color="warn">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>HomeLoans</td>
+                                            <td>R300,000.00</td>
+                                            <td>R106,000.00</td>
+                                            <td><button mat-raised-button color="warn">Save</button><button mat-raised-button color="warn">Delete</button></td>
+                                        </tr>
+                                        <tr>
+                                            <td>NDE</td>
+                                            <td>R50, 000.00</td>
+                                            <td>R106,000.00</td>
+                                            <td><button mat-raised-button color="warn">Save</button><button mat-raised-button color="warn">Delete</button></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <button mat-raised-button>New Project Cost</button>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="settings">
+                            <div class="card">
+                                <div class="card-header" data-background-color="red">
+                                    <h4 class="title">CTO Resources</h4>
+                                    <p>Total: R283,000.00</p>
+                                </div>
+                                <mat-card>
+                                    <mat-form-field>
+                                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                                    </mat-form-field>
+                                </mat-card>
+                                <div class="card-content table-responsive">
+                                    <div class="example-container mat-elevation-z8">
+                                        <div class="example-header">
+
+                                        </div>
+
+                                        <mat-table #table [dataSource]="dataSource">
+
+                                            <!-- Position Column -->
+                                            <ng-container matColumnDef="position">
+                                                <mat-header-cell *matHeaderCellDef> No. </mat-header-cell>
+                                                <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+                                            </ng-container>
+
+                                            <!-- Name Column -->
+                                            <ng-container matColumnDef="name">
+                                                <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                                                <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+                                            </ng-container>
+
+                                            <!-- Weight Column -->
+                                            <ng-container matColumnDef="weight">
+                                                <mat-header-cell *matHeaderCellDef> Weight </mat-header-cell>
+                                                <mat-cell *matCellDef="let element "> {{element.weight}} </mat-cell>
+                                            </ng-container>
+
+                                            <!-- Symbol Column -->
+                                            <ng-container matColumnDef="symbol">
+                                                <mat-header-cell *matHeaderCellDef> Symbol </mat-header-cell>
+                                                <mat-cell *matCellDef="let element"> {{element.symbol}} </mat-cell>
+                                            </ng-container>
+
+                                            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                                            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                                        </mat-table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats" >
+                <div class="card-header" data-background-color="red">
+                    <i class="material-icons">attach_money</i>
+                </div>
+                <div class="card-content">
+                    <p class="category">DELTA</p>
+                    <h3 class="title">R19,746,338.00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats" >
+                <div class="card-header" data-background-color="red">
+                    <i class="material-icons">attach_money</i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Department Spent</p>
+                    <h3 class="title">R19,746,338.00</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats" >
+                <div class="card-header" data-background-color="red">
+                    <i class="material-icons">attach_money</i>
+                </div>
+                <div class="card-content">
+                    <p class="category">Department Recovery</p>
+                    <h3 class="title">R19,746,338.00</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

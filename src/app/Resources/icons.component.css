@@ -1,0 +1,45 @@
+#tableInput{
+    border-bottom: #f1f1f1 1px solid;
+    border-right: none;
+    border-left:none;
+    border-top: none;
+    transition: border-bottom 2s;
+
+}
+
+#tableInput:focus{
+    border-bottom:1px red solid;
+    transition: border-bottom 2s;
+}
+
+#btnNew{
+    float: right;
+}
+
+#tableSelect{
+    background: #fff;
+    border:none;
+}
+
+#tableSelect:focus{
+    border-bottom: red 1px solid;
+}
+
+#btn{
+    float: left;
+    border-top: solid 1px red;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom: solid 1px red;
+    border-right:none;
+    border-left:none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+#btn:active{
+    background-color: red;
+    color: white;
+    transition: color 0.1s, background-color 0.3s;
+}
+

@@ -1,0 +1,86 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="red">
+                        <h4 class="title">Projects</h4>
+                        <p class="category">Number of Projects: {{total}}</p>
+                    </div>
+                    <div class="card-content">
+                        <mat-card>
+                            <mat-card-content>
+                                <mat-card-content>
+                                    <input type="text" placeholder="Multi-Search" id="tableInput" (keyup)="applyFilter($event.target.value)" >
+                                    <button type="submit" class="btn btn-danger" id="btnNew" data-target="#exampleModalCenter" data-toggle="modal">New Project</button>
+                                </mat-card-content>
+                            </mat-card-content>
+                        </mat-card>
+
+                        <div class="example-container mat-elevation-z8">
+                            <table class="table table-responsive">
+                                <thead>
+                                <tr>
+                                    <th class="text-danger">Project ID</th>
+                                    <th class="text-danger">Project Name</th>
+                                    <th class="text-danger">ABSA Navigator Number</th>
+                                    <th class="text-danger">ABSA IN Number</th>
+                                    <th class="text-danger"></th>
+                                </tr>
+                                </thead>
+                                <tbody *ngFor="let data of proj">
+                                    <tr>
+                                        <td><input id="tableInput" disabled value={{data.id}} #txtId></td>
+                                        <td><input id="tableInput" value={{data.name}} #txtName></td>
+                                        <td><input id="tableInput" type="number" value={{data.absaNavNum}} #txtAbsaNavNum></td>
+                                        <td><input id="tableInput" type="number" value={{data.absaInNum}} #txtAbsaInNum></td>
+                                        <td>
+                                            <button id='btn' (click)="update(txtId.value, txtName.value, txtAbsaNavNum.value, txtAbsaInNum.value)">Save</button>
+                                            <button id='btn' (click)="deleteProject(txtId.value)">Delete</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <!-- modal -->
+                            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLongTitle">New Project</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form>
+                                                    <div class="col">
+                                                        <input type="text" class="form-control"  #projName placeholder="Project Name" required>
+                                                    </div>
+                                                <div class="col">
+                                                    <input type="text" class="form-control" #projAcronym placeholder="Project Acronym" minlength="5" maxlength="6" required>
+                                                </div>
+                                                    <div class="col">
+                                                        <input type="number" class="form-control" #absaNavNum placeholder="Absa Navigation Number" required>
+                                                    </div>
+                                                    <div class="col">
+                                                        <input type="number" class="form-control" #absaInNum placeholder="Absa In Number" required>
+                                                    </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-danger" data-loading-text="<i class='fa fa-spinner fa-spin '></i>" (click)="createProject(projName.value, projAcronym.value, absaNavNum.value, absaInNum.value)">Create Project</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
